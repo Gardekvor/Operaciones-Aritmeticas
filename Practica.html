@@ -1,0 +1,84 @@
+<html>
+    <head>
+        <title>UNACH - Alumnos</title>
+        <link rel="stylesheet" href="estilos.css">
+        <script src="jquery-3.1.1.min.js"></script>
+        <script>   
+            function Operacion() {
+                var num1 = parseFloat(document.getElementById("txtnum1").value);
+                var num2 = parseFloat(document.getElementById("txtnum2").value);
+                var operacion = document.getElementById("combo").value;
+                var resultado = 0;
+
+                switch (operacion) {
+                    case "1":
+                        resultado = num1 + num2;
+                        break;
+                    case "2":
+                        resultado = num1 - num2;
+                        break;
+                    case "3":
+                        resultado = num1 * num2;
+                        break;
+                    case "4":
+                        if (num2 !== 0) {
+                            resultado = num1 / num2;
+                        } else {
+                            alert("No se puede dividir por cero");
+                        return;
+                    }
+                    break;      
+                    default:
+                        alert("Selecciona una operación válida");
+                    return;
+            }
+
+    
+                document.getElementById("txtres").value = resultado;
+            }
+            /*$(document).ready(function(){
+                //$(#'id') sentencia              
+                $('#b1').click(function(){
+                    var n1 = parseInt($('#txtnum1').val());
+                    var n2 = parseInt($('#txtnum2').val()); 
+                    $('#txtres').val(n1 + n2);
+                });
+            });*/
+        </script>
+    </head>
+
+    <body>
+        <fieldset style="width: 350;">
+            <legend>Calculadora</legend>
+            <table class="fondo" width="350">
+                <tr>
+                    <td><label>Numero 1:</label></td>
+                    <td><input type="text" id="txtnum1" size="12" maxlength="8"></td>
+                </tr>
+                <tr>
+                    <td><label>Numero 2:</label></td>
+                    <td><input type="text" id="txtnum2" size="12" maxlength="30"></td>
+                </tr>
+                <tr>
+                    <td><label>Resultado:</label></td>
+                    <td><input type="text" id="txtres" size="12" readonly></td>
+                </tr>
+                <tr>
+                    <td>
+                        <select id="combo">
+                            <option id="suma" value="1">Suma</option>
+                            <option id="resta" value="2">Resta</option>
+                            <option id="multiplicacion" value="3">Multiplicacion</option>
+                            <option id="division" value="4">Division</option>
+                        </select>
+                    </td>
+                </tr>
+                <tr>
+                    <td></td>
+                    <td><button id="b1" onclick="Operacion()">Calcular</button>
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+    </body>
+</html>
